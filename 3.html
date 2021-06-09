@@ -1,0 +1,370 @@
+<html>
+    <body>
+        <form>
+            <div class="contact-container">
+                <div class="contact-container__left-col">
+                    <img src="logo.png">
+                    <h1 style="margin-left: 60px">Temp</h1>
+                </div>
+                <div class="contact-container__right-col">
+                    <h1>Форма регистрации</h1>
+                    <p style="margin-bottom: 20px;">Заполните все поля для регистрации вашего аккаунта</p>
+                    <form id="contact-form" method="post">
+                        <div class="contact-container__input">
+                            <p>Фамилия:</p>
+                            <input placeholder="Введите Фамилию" type="text" pattern="[А-Яа-яЁё ]+" required>
+                        </div>
+                        <div class="contact-container__input">
+                            <p>Имя:</p>
+                            <input placeholder="Введите Имя" type="text" name="name" pattern="[А-Яа-яЁё ]+" required>
+                        </div>
+                        <div class="contact-container__input">
+                            <p>Отчество:</p>
+                            <input placeholder="Введите Отчество" type="text" pattern="[А-Яа-яЁё ]+">
+                        </div>
+                        <div class="contact-container__input">
+                            <p>Пол:</p>
+                            <p>
+                                <input type="radio" id="test1" name="radio-group" checked>
+                                <label for="test1">Мужской</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="test2" name="radio-group" checked>
+                                <label for="test2">Женский</label>
+                            </p>
+                        </div>
+                        <div class="contact-container__input">
+                            <p>Цвет глаз:</p>
+                            <input class="color-list" size="5" type="color" list="colorList">
+                            <datalist id="colorList">
+                                <option value="#6f3400" label="Карий">
+                                <option value="#688a01" label="Зелёный">
+                                <option value="#5c82ff" label="Голубой">
+                            </datalist>
+                        </div>
+                        <div class="contact-container__input">
+                            <p>Дата рождения:</p>
+                            <input type="date" data-date="" data-date-format="DD MMMM YYYY" required/>
+                            <p>Возраст:</p>
+                            <input type="number" min="18" max="100" id="age" name="age" placeholder="Возраст" required/>
+                        </div>
+                        <div class="contact-container__input">
+                            <p>Место рождения:</p>
+                            <p><input list="character" required>
+                                <datalist id="character">
+                                    <option value="Russia"></option>
+                                    <option value="China"></option>
+                                    <option value="USA"></option>
+                                    <option value="Korea"></option>
+                                    <option value="Indonezia"></option>
+                                    <option value="India"></option>
+                                </datalist>
+                            </p>
+                        </div>
+                        <div class="contact-container__input">
+                            <p>Индекс:</p>
+                            <input class="container__person" type="number"
+                                   placeholder="Введите Индекс" name="index" required
+                                   pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
+                            >
+                        </div>
+                        <div class="contact-container__input">
+                            <p>Дата регистрации:</p>
+                            <input type="date" data-date="" data-date-format="DD MMMM YYYY" required/>
+                        </div>
+                        <div class="contact-container__input">
+                            <p>Номер:</p>
+                            <input type="text" placeholder="+7-ххх-ххх-хх-хх"
+                                   type="num" name="" pattern="(\+79[0-9]{9}|8[0-9]{10})" required/>
+                        </div>
+                        <div class="contact-container__input">
+                            <input type="file" name="photo" multiple accept="image/jpeg" placeholder="выберите фацл формата .jpeg" required>
+                        </div>
+                        <label class="contact-container__input">
+                            <p>Откуда вы узнали об этом магазине:</p> <br>
+                            <div class="form-group">
+                                <input type="checkbox" id="html">
+                                <label for="html">Из рекламы в сети</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="css">
+                                <label for="css">От знакомых</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="javascript">
+                                <label for="javascript">Искал(а) самостоятельно</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="option" checked="true">
+                                <label class="contact-container__agreement " for="option">Я соглашаюсь на обработку персональных данных
+                                    <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M13 50.986L37.334 75 88 25" stroke-width="6" stroke="#66bb6a" fill="none" fill-rule="evenodd" stroke-dasharray="150" stroke-dashoffset="150"/></svg>
+                                </label>
+                            </div>
+                        <div class="contact-container__input">
+                            <input class="button-reset" type="reset" value="Очистить форму"/>
+                            <button type="submit" id="submit" name="submit">Отправить</button>
+                        </div>
+                        </label>
+                    </form>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
+
+<style>
+:root {
+    --primary-color: #010712;
+    --secondary-color: #818386;
+    --bg-color: #FCFDFD;
+    --button-color: #3B3636;
+    --h1-color: #3F444C;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+}
+.contact-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+.contact-container__input {
+    padding: 5px 0;
+}
+.contact-container__left-col {
+    width: 23%;
+    height: 100%;
+    margin-left: 5%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 20%;
+}
+.contact-container__right-col {
+    background: var(--bg-color);
+    width: 50vw;
+    height: 85vw;
+    padding: 5rem 3.5rem;
+}
+
+h1, label, button, .description {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+}
+
+h1 {
+    color:var(--h1-color);
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    letter-spacing: 0.5rem;
+    font-weight: 300;
+}
+
+p {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    letter-spacing: 0.01rem;
+    width: 40vw;
+    margin: 0.25rem 0;
+}
+
+label, .description {
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    font-size: 0.625rem;
+}
+
+form {
+    width: 31.25rem;
+    position: relative;
+    margin-top: 2rem;
+    padding: 1rem 0;
+}
+
+input, textarea, label {
+    width: 40vw;
+    display: block;
+}
+
+p, placeholder, input, textarea {
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+input::placeholder, textarea::placeholder {
+    color: var(--primary-color);
+}
+
+input, textarea {
+    color: var(--primary-color);
+    font-weight: 500;
+    background: var(--bg-color);
+    border: none;
+    border-bottom: 1px solid var(--secondary-color);
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    outline: none;
+    cursor: pointer;
+}
+
+textarea {
+    resize: none;
+}
+
+button {
+    text-transform: uppercase;
+    font-weight: 300;
+    background: var(--button-color);
+    color: var(--bg-color);
+    width: 10rem;
+    height: 2.25rem;
+    border: none;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+input:hover, textarea:hover, button:hover {
+    opacity: 0.5;
+}
+
+button:active {
+    opacity: 0.8;
+}
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #a6f0c6;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+.form-group {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.form-group input {
+    padding: 20px 0;
+    height: initial;
+    width: initial;
+    margin-bottom: 0;
+    display: none;
+    cursor: pointer;
+}
+
+.form-group label {
+    position: relative;
+    cursor: pointer;
+}
+
+.form-group label:before {
+    content:'';
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 2px solid #a6f0c6;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.form-group input:checked + label:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 9px;
+    width: 6px;
+    height: 14px;
+    border: solid #50936a;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+svg {
+    width: 1.5em;
+    height: 1.5em;
+    position: absolute;
+    left: -.5em;
+    top: -0.25em;
+    border: 5px solid #000;
+}
+.contact-container__agreement {
+    display: inline-block;
+    padding-left: 1.5em;
+    position: relative;
+    cursor: pointer;
+
+}
+input[type="checkbox"] {
+    opacity: 0;
+    width: 40px;
+    height: 40px;
+}
+.contact-container__agreement  {
+    transition: color 80ms linear;
+}
+.contact-container__agreement  svg {
+    transition: border-color 80ms linear;
+}
+.contact-container__agreement  svg path {
+    transition: stroke-dashoffset 80ms linear;
+}
+input[type="checkbox"]:checked ~ .contact-container__agreement  svg path {
+    stroke-dashoffset: 0;
+}
+input[type="checkbox"]:checked ~ .contact-container__agreement  svg {
+    border-color: #66bb6a;
+}
+input[type="checkbox"]:checked ~ .contact-container__agreement  {
+    color: #66bb6a;
+    margin-bottom: 20px;
+}
+</style>
