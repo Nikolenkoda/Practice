@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="task4.css" rel="stylesheet">
+    <title>Задание 4</title>
+</head>
+<html>
+    <body>
+        <form>
+            <div class="contact-container">
+                <div class="contact-container__left-col">
+                </div>
+                <div class="contact-container__right-col">
+                    <h1>Регистрация</h1>
+                    <p style="margin-bottom: 20px;">Заполните все поля для регистрации вашего аккаунта</p>
+                    <form id="contact-form" method="post">
+                        <div class="contact-container__input">
+                            <p>Фамилия:</p>
+                            <input placeholder="Введите Фамилию" type="text" pattern="[А-Яа-яЁё ]+" required>
+                            <span class="form__error">Только русскими буквами</span>
+                        </div>
+                        <div class="contact-container__input">
+                            <p>Имя:</p>
+                            <input placeholder="Введите Имя" type="text" name="name" pattern="[А-Яа-яЁё ]+" required>
+                            <span class="form__error">Только русскими буквами</span>
+                        </div>
+                        <div class="contact-container__input">
+                            <p>Отчество:</p>
+                            <input placeholder="Введите Отчество" type="text" pattern="[А-Яа-яЁё ]+">
+                            <span class="form__error">Только русскими буквами</span>
+                        </div>
+                        <div class="contact-container__input">
+                            <p>Пол:</p>
+                            <p>
+                                <input type="radio" id="test1" name="radio-group" checked>
+                                <label for="test1">Мужской</label>
+                            </p>
+                            <p>
+                                <input type="radio" id="test2" name="radio-group" checked>
+                                <label for="test2">Женский</label>
+                            </p>
+                        </div>
+                        <div class="contact-container__input">
+                            <p>Цвет глаз:</p>
+                            <input class="color-list" size="5" type="color" list="colorList">
+                            <datalist id="colorList">
+                                <option value="#6f3400" label="Карий">
+                                <option value="#688a01" label="Зелёный">
+                                <option value="#5c82ff" label="Голубой">
+                            </datalist>
+                        </div>
+                        <div class="contact-container__input">
+                            <p>Дата рождения:</p>
+                            <input type="date" data-date="" data-date-format="DD MMMM YYYY" required/>
+                            <p>Возраст:</p>
+                            <input type="number" min="18" max="100" id="age" name="age" placeholder="Возраст" required/>
+                        </div>
+                        <div class="contact-container__input">
+                            <p>Место рождения:</p>
+                            <p><input list="character" required>
+                                <datalist id="character">
+                                    <option value="Russia"></option>
+                                    <option value="China"></option>
+                                    <option value="USA"></option>
+                                    <option value="Korea"></option>
+                                    <option value="Indonezia"></option>
+                                    <option value="India"></option>
+                                </datalist>
+                            </p>
+                        </div>
+                        <div class="contact-container__input">
+                            <p>Индекс:</p>
+                            <input class="container__person" type="number"
+                                   placeholder="Введите Индекс" name="index" required
+                                   pattern="\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
+                            >
+                        </div>
+                        <div class="contact-container__input">
+                            <p>Дата регистрации:</p>
+                            <input type="date" data-date="" data-date-format="DD MMMM YYYY" required/>
+                        </div>
+                        <div class="contact-container__input">
+                            <p>Номер:</p>
+                            <input type="text" placeholder="+7-ххх-ххх-хх-хх"
+                                   type="num" name="" pattern="(\+79[0-9]{9}|8[0-9]{10})" required/>
+                        </div>
+                        <div class="contact-container__input">
+                            <input type="file" name="photo" multiple accept="image/jpeg" placeholder="выберите фацл формата .jpeg" required>
+                        </div>
+                        <label class="contact-container__input">
+                            <p>Откуда вы узнали об этом магазине:</p> <br>
+                            <div class="form-group">
+                                <input type="checkbox" id="html">
+                                <label for="html">Из рекламы в сети</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="css">
+                                <label for="css">От знакомых</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="javascript">
+                                <label for="javascript">Искал(а) самостоятельно</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="option" checked="true">
+                                <label class="contact-container__agreement " for="option">Я соглашаюсь на обработку персональных данных
+                                    <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M13 50.986L37.334 75 88 25" stroke-width="6" stroke="#66bb6a" fill="none" fill-rule="evenodd" stroke-dasharray="150" stroke-dashoffset="150"/></svg>
+                                </label>
+                            </div>
+                        <div class="contact-container__input">
+                            <input class="button-reset" type="reset" value="Очистить форму"/>
+                            <button type="submit" id="submit" name="submit">Отправить</button>
+                        </div>
+                        </label>
+                    </form>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
