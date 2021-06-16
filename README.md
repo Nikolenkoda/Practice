@@ -18,6 +18,6 @@
 
 # Задание 5
 ```
-Создание формы регистрации
+Flexbox
 ```
 ## https://nikolenkoda.github.io/Practice/Web/task5/task5.html
