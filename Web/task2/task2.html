@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="task2.css" rel="stylesheet">
+    <title>Задание 2</title>
+</head>
+<body>
+<header>
+  <nav>
+    <li> <a href="https://twitter.com/" target="_blank">Twitter</a></li>
+    <li> <a href="https://instagram.com/" target="_blank">Instagram</a> </li>
+  </nav>
+</header>
+<div id="slider">
+  <div class="slides">
+    <div class="slider">
+      <div class="legend"></div>
+      <div class="content">
+        <div class="content-txt">
+          <h1>TEMP</h1>
+          <h2>Это изысканные и редкие сорта кофе и чая</h2>
+        </div>
+      </div>
+      <div class="image">
+        <img src="slide1.jpg">
+      </div>
+    </div>
+    <div class="slider">
+      <div class="legend"></div>
+      <div class="content">
+        <div class="content-txt">
+          <h1>БРИТАНСКОЕ КАЧЕСТВО</h1>
+          <h2>Самые люксовые сорта</h2>
+        </div>
+      </div>
+      <div class="image">
+        <img src="slide2.jpg">
+      </div>
+    </div>
+    <div class="slider">
+      <div class="legend"></div>
+      <div class="content">
+        <div class="content-txt">
+          <h1>УСПЕЙ КУПИТЬ</h1>
+          <h2>Скидка от 10-25% предоставляется только членам клубных карт магазина TEMP</h2>
+        </div>
+      </div>
+      <div class="image">
+        <img src="slide3.jpg">
+      </div>
+    </div>
+    <div class="slider">
+      <div class="legend"></div>
+      <div class="content">
+        <div class="content-txt">
+          <h1>ГАРАНТИЯ КАЧЕСТВА</h1>
+          <h2>В случае не оправданного ожидания от товаров магаизна TEMP, мы возмещаем затраты в полном объеме</h2>
+        </div>
+      </div>
+      <div class="image">
+        <img src="slide4.jpg">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h2 style="margin-left: 1vw;"> Почувствуй настоящий вкус скидок</h2>
+  <figure class="gallery"><img src="slide4.jpg" alt="sample87"/>
+    <figcaption>
+      <h3>Кофе</h3>
+      <h5>Выбрать</h5>
+    </figcaption><a href="#"></a>
+  </figure>
+  <figure class="gallery"><img src="slide1.jpg" alt="sample120"/>
+    <figcaption>
+      <h3>Чай</h3>
+      <h5>Выбрать</h5>
+    </figcaption><a href="#"></a>
+  </figure>
+  <figure class="gallery"><img src="slide2.jpg" alt="sample120"/>
+    <figcaption>
+      <h3>Товары со скидкой</h3>
+      <h5>Посмотреть</h5>
+    </figcaption><a href="#"></a>
+  </figure>
+  <figure class="gallery"><img src="slide3.jpg" alt="sample120"/>
+    <figcaption>
+      <h3>Технологии производства</h3>
+      <h5>Посмотреть</h5>
+    </figcaption><a href="#"></a>
+  </figure>
+</div>
+<footer>
+  <h1> TEMP 2021 </h1>
+</footer>
+    </body>
+  </html>
+  <script>
+      $(document).ready(function() {
+  
+  var $slider = $(".slider"),
+      $slideBGs = $(".slide__bg"),
+      diff = 0,
+      curSlide = 0,
+      numOfSlides = $(".slide").length-1,
+      animating = false,
+      animTime = 500,
+      autoSlideTimeout,
+      autoSlideDelay = 6000,
+      $pagination = $(".slider-pagi");
+  
+  function createBullets() {
+    for (var i = 0; i < numOfSlides+1; i++) {
+      var $li = $("<li class='slider-pagi__elem'></li>");
+      $li.addClass("slider-pagi__elem-"+i).data("page", i);
+      if (!i) $li.addClass("active");
+      $pagination.append($li);
+    }
+  };
+  
+  createBullets();
+  
+  function manageControls() {
+    $(".slider-control").removeClass("inactive");
+    if (!curSlide) $(".slider-control.left").addClass("inactive");
+    if (curSlide === numOfSlides) $(".slider-control.right").addClass("inactive");
+  };
+  
+  function autoSlide() {
+    autoSlideTimeout = setTimeout(function() {
+      curSlide++;
+      if (curSlide > numOfSlides) curSlide = 0;
+      changeSlides();
+    }, autoSlideDelay);
+  };
+  
+  autoSlide();
+  
+  function changeSlides(instant) {
+    if (!instant) {
+      animating = true;
+      manageControls();
+      $slider.addClass("animating");
+      $slider.css("top");
+      $(".slide").removeClass("active");
+      $(".slide-"+curSlide).addClass("active");
+      setTimeout(function() {
+        $slider.removeClass("animating");
+        animating = false;
+      }, animTime);
+    }
+    window.clearTimeout(autoSlideTimeout);
+    $(".slider-pagi__elem").removeClass("active");
+    $(".slider-pagi__elem-"+curSlide).addClass("active");
+    $slider.css("transform", "translate3d("+ -curSlide*100 +"%,0,0)");
+    $slideBGs.css("transform", "translate3d("+ curSlide*50 +"%,0,0)");
+    diff = 0;
+    autoSlide();
+  }
+
+  function navigateLeft() {
+    if (animating) return;
+    if (curSlide > 0) curSlide--;
+    changeSlides();
+  }
+
+  function navigateRight() {
+    if (animating) return;
+    if (curSlide < numOfSlides) curSlide++;
+    changeSlides();
+  }
+
+  $(document).on("mousedown touchstart", ".slider", function(e) {
+    if (animating) return;
+    window.clearTimeout(autoSlideTimeout);
+    var startX = e.pageX || e.originalEvent.touches[0].pageX,
+        winW = $(window).width();
+    diff = 0;
+    
+    $(document).on("mousemove touchmove", function(e) {
+      var x = e.pageX || e.originalEvent.touches[0].pageX;
+      diff = (startX - x) / winW * 70;
+      if ((!curSlide && diff < 0) || (curSlide === numOfSlides && diff > 0)) diff /= 2;
+      $slider.css("transform", "translate3d("+ (-curSlide*100 - diff) +"%,0,0)");
+      $slideBGs.css("transform", "translate3d("+ (curSlide*50 + diff/2) +"%,0,0)");
+    });
+  });
+  
+  $(document).on("mouseup touchend", function(e) {
+    $(document).off("mousemove touchmove");
+    if (animating) return;
+    if (!diff) {
+      changeSlides(true);
+      return;
+    }
+    if (diff > -8 && diff < 8) {
+      changeSlides();
+      return;
+    }
+    if (diff <= -8) {
+      navigateLeft();
+    }
+    if (diff >= 8) {
+      navigateRight();
+    }
+  });
+  
+  $(document).on("click", ".slider-control", function() {
+    if ($(this).hasClass("left")) {
+      navigateLeft();
+    } else {
+      navigateRight();
+    }
+  });
+  
+  $(document).on("click", ".slider-pagi__elem", function() {
+    curSlide = $(this).data("page");
+    changeSlides();
+  }); 
+});
+
+var snippet = [].slice.call(document.querySelectorAll('.hover'));
+if (snippet.length) {
+  snippet.forEach(function (snippet) {
+    snippet.addEventListener('mouseout', function (event) {
+      if (event.target.parentNode.tagName === 'figure') {
+        event.target.parentNode.classList.remove('hover')
+      } else {
+        event.target.parentNode.classList.remove('hover')
+      }
+    });
+  });
+}
+  </script>
