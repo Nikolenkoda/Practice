@@ -15,3 +15,9 @@
 Создание формы регистрации
 ```
 ## https://nikolenkoda.github.io/Practice/Web/task4/task4.html
+
+# Задание 5
+```
+Создание формы регистрации
+```
+## https://nikolenkoda.github.io/Practice/Web/task5/task5.html
