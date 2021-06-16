@@ -1,0 +1,58 @@
+body {
+    margin: 30px;
+}
+.conteiner {
+    width: 300px;
+    background-color: #FEFEFEED;
+    border: 10px #E26A6A;
+    border-top-style: hidden;
+    border-right-style: solid;
+    border-bottom-style: hidden;
+    border-left-style: solid;
+    padding:25px;
+    text-align: justify;
+    font-size: 11px;
+    font-family: lato;
+    line-height: 13px;
+  }
+  .scrollbar{
+  width: 10px;
+  }
+  .flowers {
+    text-align: right;
+    font-family: Abril fatface;
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+  
+  .fioriture {
+    height: 2px;
+    background: linear-gradient(to left, #E26A6A, #FFD3D3);
+    margin-top: -15px;
+  }
+  
+  infos {
+    font-family: Titillium Web;
+    letter-spacing: 3px;
+    font-size: 10px;
+    text-transform: lowercase;
+  }
+  
+  credits {
+    width: 150px;
+    opacity: 0.5;
+    text-align: center;
+    font-size: 8px;
+    font-family: arial;
+  }
+  
+  .conteiner img{
+      width: 65px; 
+      height: 65px; 
+      object-fit: cover; 
+      border-radius: 100px; 
+      border: 5px solid #FFD3D3; 
+      margin-right: 2px; 
+      margin-top: 3px;
+    }
+  
