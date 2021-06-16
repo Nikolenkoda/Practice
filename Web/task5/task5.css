@@ -1,0 +1,417 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:500);
+:root {
+	font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	min-height: 100vh;
+    background-color: #c8cfdc;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+	max-width: 100rem;
+	margin: 0 auto;
+	padding: 0 2rem 2rem;
+}
+
+.heading {
+	font-family: "Montserrat", Arial, sans-serif;
+	font-size: 4rem;
+	font-weight: 500;
+	line-height: 1.5;
+	text-align: center;
+	padding: 3.5rem 0;
+	color: #1a1a1a;
+}
+
+.heading span {
+	display: block;
+}
+
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -1rem -1rem;
+}
+
+.gallery-item {
+	flex: 1 0 24rem;
+	margin: 1rem;
+	box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+	overflow: hidden;
+}
+
+.gallery-image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 400ms ease-out;
+}
+
+.gallery-image:hover {
+	transform: scale(1.15);
+}
+
+@supports (display: grid) {
+	.gallery {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+		grid-gap: 2rem;
+	}
+
+	.gallery,
+	.gallery-item {
+		margin: 0;
+	}
+}
+header {
+    align-items: center;
+    display: flex;
+    margin: 2em;
+  }
+  #logo,
+  nav {
+    flex: 1;
+  }
+  
+  h1 {
+    font-family: "Montserrat", Arial, sans-serif;
+	font-size: 3rem;
+	font-weight: 500;
+	line-height: 1.5;
+  }
+  nav ul {
+    display: flex;
+    justify-content: space-around;
+    font-family: "Montserrat", Arial, sans-serif;
+	font-size: 1rem;
+	font-weight: 500;
+	line-height: 1.5;
+  }
+  
+  nav li {
+    list-style: none;
+  }
+
+  .blocks_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1170px;
+  }
+  .block {
+    background-color: #fff;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  .product_block {
+    width: 31%;
+    overflow: hidden;
+    position: relative;
+    height: 400px;
+    transition: all 0.4s ease;
+  }
+  .product_block .product_header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 55px;
+    transform: translateY(-100%);
+    transition: transform 0.43s cubic-bezier(0.32, 1.259, 0.375, 1.15);
+  }
+  .product_block .product_header .product_heart {
+    float: left;
+    margin-top: 15px;
+    padding-left: 30px;
+  }
+  .product_block .product_header .product_heart img {
+    width: 20px;
+    height: 20px;
+  }
+  .product_block .product_header .product_tag {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    text-align: center;
+    transform: translateX(-50%);
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Ropa Sans', sans-serif;
+    background-color: #3b4068;
+    padding: 4px 15px;
+    border-radius: 0.8em;
+    transition: all 0.3s ease;
+  }
+  .product_block .product_header .product_shop {
+    float: right;
+    margin-top: 15px;
+    padding-right: 30px;
+  }
+  .product_block .product_header .product_shop img {
+    width: 20px;
+    height: 20px;
+  }
+  .product_block .product_img {
+    width: 85%;
+    margin: 0 auto;
+    height: 260px;
+    background-size: contain;
+    background-position: 50% 80%;
+    background-repeat: no-repeat;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+  }
+  .product_block .product_info {
+    text-align: center;
+    padding-top: 20px;
+  }
+  .product_block .product_info .product_title {
+    font-size: 16px;
+    font-family: 'Ropa Sans', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .product_block .product_info .product_subtitle {
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #999;
+    margin: 0;
+    margin-bottom: 15px;
+  }
+  .product_block .product_info .product_price {
+    font-family: 'Ropa Sans', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .product_block .product_info .product_price span {
+    text-decoration: line-through;
+    color: #fc7070;
+    padding-left: 9px;
+  }
+  .product_block:hover {
+    background-color: #3b4068;
+    color: #fff;
+  }
+  .product_block:hover .product_header {
+    transform: translateY(0);
+  }
+  .product_block:hover .product_header .product_tag {
+    background-color: #fff;
+    color: #3b4068;
+  }
+  .product_block:hover .product_img {
+    transform: scale(1.03);
+  }
+  .new_arrival {
+    width: 31%;
+    overflow: hidden;
+    position: relative;
+    height: 400px;
+    text-align: center;
+    transition: all 0.4s ease;
+  }
+  .new_arrival .na_subtitle {
+    font-family: 'Ropa Sans', sans-serif;
+    text-transform: uppercase;
+    margin-top: 40px;
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+  .new_arrival .na_title {
+    font-family: 'Ropa Sans', sans-serif;
+    text-transform: uppercase;
+    margin-top: 0;
+    font-size: 51px;
+    margin-bottom: 20px;
+  }
+  .new_arrival .na_img {
+    width: 100%;
+    height: 330px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+  }
+  .new_arrival:hover .na_img {
+    transform: scale(1.04);
+  }
+  .news_block {
+    width: 65%;
+    overflow: hidden;
+    position: relative;
+    height: 400px;
+    transition: all 0.4s ease;
+  }
+  .news_block .news_img {
+    position: relative;
+    width: 100%;
+    height: 275px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+  }
+  .news_block .news_img .news_tag {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, -300%);
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Ropa Sans', sans-serif;
+    background-color: #83d78c;
+    padding: 4px 15px;
+    border-radius: 0.8em;
+    transition: transform 0.43s cubic-bezier(0.32, 1.259, 0.375, 1.15);
+  }
+  .news_block .news_content {
+    height: 125px;
+    text-align: center;
+  }
+  .news_block .news_content .news_title {
+    font-size: 16px;
+    font-family: 'Ropa Sans', sans-serif;
+    text-transform: uppercase;
+    margin: 20px 0 0 0;
+  }
+  .news_block .news_content .news_subtitle {
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #999;
+    margin: 9px 0 10px 0;
+  }
+  .news_block .news_content .news_price {
+    font-size: 16px;
+    font-family: 'Ropa Sans', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .news_block:hover .news_img {
+    transform: scale(1.04);
+  }
+  .news_block:hover .news_img .news_tag {
+    transform: translate(-50%, 0);
+  }
+  .news_block_lat {
+    width: 65%;
+    overflow: hidden;
+    position: relative;
+    height: 400px;
+    transition: all 0.4s ease;
+  }
+  .news_block_lat .news_img {
+    position: relative;
+    width: 48%;
+    float: left;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+  }
+  .news_block_lat .news_content {
+    position: relative;
+    float: left;
+    width: 52%;
+    overflow: hidden;
+  }
+  .news_block_lat .news_content .nbl_tag {
+    display: inline-block;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Ropa Sans', sans-serif;
+    background-color: #0089cf;
+    padding: 4px 15px;
+    border-radius: 0.8em;
+    margin: 30px 0 50px 15px;
+  }
+  .news_block_lat .news_content .nbl_title {
+    font-size: 16px;
+    font-family: 'Ropa Sans', sans-serif;
+    text-transform: uppercase;
+    margin: 30px 0 0 15px;
+  }
+  .news_block_lat .news_content .nbl_subtitle {
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #999;
+    margin: 5px 0 10px 15px;
+  }
+  .news_block_lat .news_content .nbl_desc {
+    font-size: 12px;
+    color: #999;
+    letter-spacing: 1px;
+    margin-left: 15px;
+    width: 90%;
+  }
+  .news_block_lat .news_content .nbl_price {
+    font-size: 16px;
+    font-family: 'Ropa Sans', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 30px 0 0 15px;
+  }
+  .news_block_lat:hover .news_img {
+    transform: scale(1.04);
+  }
+  .news_block_lat:hover .news_img .news_tag {
+    transform: translate(-50%, 0);
+  }
+  @media (max-width: 730px) {
+    .product_block,
+    .new_arrival,
+    .news_block,
+    .news_block_lat {
+      width: 100%;
+    }
+    .news_block_lat .news_img {
+      width: 100%;
+      float: none;
+      height: 200px;
+    }
+    .news_block_lat .news_content {
+      float: none;
+      width: 100%;
+      overflow: visible;
+    }
+    .news_block_lat .news_content .nbl_tag {
+      width: 60px;
+      position: relative;
+      top: -10px;
+      z-index: 2;
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .news_block_lat .news_content .nbl_title {
+      margin: 0 25px;
+    }
+    .news_block_lat .news_content .nbl_subtitle,
+    .news_block_lat .news_content .nbl_desc,
+    .news_block_lat .news_content .nbl_price {
+      margin-left: 25px;
+    }
+  }
+  
